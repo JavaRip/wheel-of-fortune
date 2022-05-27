@@ -101,6 +101,9 @@
     document.querySelector('#respin').addEventListener('click', (e) => {
       document.querySelector('#spinner').classList.remove('spin');
       void document.querySelector('#spinner').offsetWidth;
+      document.documentElement.style.setProperty(
+        '--spin-factor', 1080 + (Math.random() * 1080) + 'deg'
+      );
       document.querySelector('#spinner').classList.add('spin');
     });
 
