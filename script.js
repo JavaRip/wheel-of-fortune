@@ -2,8 +2,6 @@ const fortuneWheelTemplate = document.createElement('template');
 
 fortuneWheelTemplate.innerHTML = `
 <style>
-  :root { --spin-factor: 1080deg; }
-
   #container {
     width: min-content;
     display: flex;
@@ -12,9 +10,7 @@ fortuneWheelTemplate.innerHTML = `
     padding: 2em;
   }
 
-  #arrow {
-    font-size: 2em;
-  }
+  #arrow { font-size: 2em; }
 
   #spinner {
     width: 15em;
