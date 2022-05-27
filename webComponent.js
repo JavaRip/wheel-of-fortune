@@ -62,7 +62,7 @@ fortuneWheelTemplate.innerHTML = `
 
   @keyframes spin {
     0% { transform: rotate(0deg); }
-    100% { transform: rotate(var(--spin-factor)); }
+    100% { transform: rotate(var(--s)); }
   }
 </style>
 <div id=container>
