@@ -21,8 +21,9 @@
     height: 15em;
     display: flex;
     justify-content: center;
-    animation: spin 2s ease-out forwards;
   }
+
+  .spin { animation: spin 2s ease-out forwards; }
 
   .slice {
     height: 15em;
@@ -74,18 +75,43 @@
 </head>
 <body>
   <div id=arrow>⬇</div>
-  <div id=spinner>
-    <div class=slice id=sl1>&nbsp&nbsp option1</div>
-    <div class=slice id=sl2>&nbsp&nbsp option2</div>
-    <div class=slice id=sl3>&nbsp&nbsp option3</div>
-    <div class=slice id=sl4>&nbsp&nbsp option4</div>
-    <div class=slice id=sl5>&nbsp&nbsp option5</div>
-    <div class=slice id=sl6>&nbsp&nbsp option6</div>
+  <div id=spinner class=spin>
+    <div class=slice id=sl1>option1</div>
+    <div class=slice id=sl2>option2</div>
+    <div class=slice id=sl3>option3</div>
+    <div class=slice id=sl4>option4</div>
+    <div class=slice id=sl5>option5</div>
+    <div class=slice id=sl6>option6</div>
   </div>
+
+  <input type=text id=sl1Label></input>
+  <input type=text id=sl2Label></input>
+  <input type=text id=sl3Label></input>
+  <input type=text id=sl4Label></input>
+  <input type=text id=sl5Label></input>
+  <input type=text id=sl6Label></input>
+
+  <button id=respin>spin again</button>
+
   <script>
     document.documentElement.style.setProperty(
       '--spin-factor', 1080 + (Math.random() * 1080) + 'deg'
     );
+
+    document.querySelector('#respin').addEventListener('click', (e) => {
+      document.querySelector('#spinner').classList.remove('spin');
+      void document.querySelector('#spinner').offsetWidth;
+      document.querySelector('#spinner').classList.add('spin');
+    });
+
+    document.addEventListener('keydown', (e) => {
+      document.querySelector('#sl1').textContent = document.querySelector('#sl1Label').value;
+      document.querySelector('#sl2').textContent = document.querySelector('#sl2Label').value;
+      document.querySelector('#sl3').textContent = document.querySelector('#sl3Label').value;
+      document.querySelector('#sl4').textContent = document.querySelector('#sl4Label').value;
+      document.querySelector('#sl5').textContent = document.querySelector('#sl5Label').value;
+      document.querySelector('#sl6').textContent = document.querySelector('#sl6Label').value;
+    });
   </script>
 </body>
 </html>
